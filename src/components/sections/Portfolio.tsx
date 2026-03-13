@@ -12,25 +12,43 @@ const projects = [
   {
     id: 1,
     title: 'Скульптура "Крылья"',
-    image: '/portfolio/1.jpg',
+    image: '/images/portfolio/1.jpg',
     category: 'Городской парк',
   },
   {
     id: 2,
     title: 'Композиция "Древо"',
-    image: '/portfolio/2.jpg',
+    image: '/images/portfolio/2.jpg',
     category: 'Жилой комплекс',
   },
   {
     id: 3,
     title: 'Арт-объект "Поток"',
-    image: '/portfolio/3.jpg',
+    image: '/images/portfolio/3.jpg',
     category: 'Бизнес-центр',
   },
   {
     id: 4,
     title: 'Скульптура "Лось"',
-    image: '/portfolio/4.jpg',
+    image: '/images/portfolio/4.jpg',
+    category: 'Загородный клуб',
+  },
+  {
+    id: 5,
+    title: 'Скульптура "Лось"',
+    image: '/images/portfolio/5.jpg',
+    category: 'Загородный клуб',
+  },
+  {
+    id: 6,
+    title: 'Скульптура "Лось"',
+    image: '/images/portfolio/6.jpg',
+    category: 'Загородный клуб',
+  },
+  {
+    id: 7,
+    title: 'Скульптура "Лось"',
+    image: '/images/portfolio/7.jpg',
     category: 'Загородный клуб',
   },
   // ... можно добавить
