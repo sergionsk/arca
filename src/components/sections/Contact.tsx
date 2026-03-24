@@ -36,15 +36,15 @@ const Contact = () => {
                   А
                 </div>
                 <div className="ml-4">
-                  <p className="font-medium">Меня зовут Александр</p>
+                  <p className="font-medium">Меня зовут Сергей</p>
                   <p className="text-sm text-gray-600">
                     Занимаюсь арт-объектами и скульптурами, которые меняют ощущение от пространства. Люблю, когда через пять лет люди всё ещё делают фото у наших объектов и приводят к ним детей.
                   </p>
                 </div>
               </div>
               <div className="mt-4 space-y-1 text-sm">
-                <p>📞 +7 (999) 123-45-67</p>
-                <p>✉️ info@arcaobjects.ru</p>
+                <p>📞 +7 (913) 717-33-82</p>
+                <p>✉️ info@arca-objects.ru</p>
                 <p>💬 Telegram / WhatsApp</p>
               </div>
             </div>
