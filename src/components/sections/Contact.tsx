@@ -10,7 +10,7 @@ import { ContactForm } from '@/components/forms/ContactForm';
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (data: any) => {
+  const handleSubmit = (data: unknown) => {
     // Здесь будет отправка на сервер
     console.log(data);
     setSubmitted(true);
@@ -38,7 +38,11 @@ const Contact = () => {
                 <div className="ml-4">
                   <p className="font-medium">Меня зовут Сергей</p>
                   <p className="text-sm text-gray-600">
-                    Занимаюсь арт-объектами и скульптурами, которые меняют ощущение от пространства. Люблю, когда через пять лет люди всё ещё делают фото у наших объектов и приводят к ним детей.
+                    описани внизу:
+
+Меня зовут Сергей
+
+Создаем арт-объекты и скульптуры, которые наполняют пространство характером и делают его выразительнее. Любовь к своему делу помогает нам воплощать идеи в жизнь, притягивая людям долгие годы.
                   </p>
                 </div>
               </div>

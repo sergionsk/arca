@@ -51,6 +51,60 @@ const projects = [
     image: '/images/portfolio/7.jpg',
     category: 'Загородный клуб',
   },
+  {
+    id: 8,
+    title: 'Скульптура "Лось"',
+    image: '/images/portfolio/p8.jpg',
+    category: 'Загородный клуб',
+  },
+  {
+    id: 9,
+    title: 'Скульптура "Лось"',
+    image: '/images/portfolio/p9.jpg',
+    category: 'Загородный клуб',
+  },
+  {
+    id: 10,
+    title: 'Скульптура "Лось"',
+    image: '/images/portfolio/p10.jpg',
+    category: 'Загородный клуб',
+  },
+  {
+    id: 11,
+    title: 'Скульптура "Лось"',
+    image: '/images/portfolio/p11.jpg',
+    category: 'Загородный клуб',
+  },
+  {
+    id: 12,
+    title: 'Скульптура "Лось"',
+    image: '/images/portfolio/p12.jpg',
+    category: 'Загородный клуб',
+  },
+  {
+    id: 13,
+    title: 'Скульптура "Лось"',
+    image: '/images/portfolio/p13.jpg',
+    category: 'Загородный клуб',
+  },
+  {
+    id: 14,
+    title: 'Скульптура "Лось"',
+    image: '/images/portfolio/p14.jpg',
+    category: 'Загородный клуб',
+  },
+  {
+    id: 15,
+    title: 'Скульптура "Лось"',
+    image: '/images/portfolio/p15.jpg',
+    category: 'Загородный клуб',
+  },
+  {
+    id: 16,
+    title: 'Скульптура "Лось"',
+    image: '/images/portfolio/p16.jpg',
+    category: 'Загородный клуб',
+  },
   // ... можно добавить
 ];
 
