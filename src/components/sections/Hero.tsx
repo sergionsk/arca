@@ -1,23 +1,22 @@
-
+// components/sections/Hero.tsx
 'use client';
 
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
 import { Container } from '@/components/layout/Container';
-import { VideoBackground } from '@/components/ui/VideoBackground';
+import { AnimatedImageBackground } from '@/components/ui/AnimatedImageBackground'; // импортируем картинку с анимацией
 
 const Hero = () => {
   return (
     <section className="relative bg-gray-900 py-20 md:py-32 overflow-hidden min-h-[600px] flex items-center">
-      {/* Видеофон */}
-      <VideoBackground
-        src="/videos/hero.mp4"
-        poster="/images/hero-poster.jpg"
+      {/* Анимированное фоновое изображение */}
+      <AnimatedImageBackground
+        src="/images/hero-bg.jpg"     // путь к вашей картинке
         overlay
-        overlayOpacity="bg-black/40"
+        overlayOpacity="bg-black/40"   // затемнение для читаемости текста
       />
 
-      {/* Контент поверх видео */}
+      {/* Контент */}
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -26,12 +25,10 @@ const Hero = () => {
           className="max-w-4xl relative z-10 text-white"
         >
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            АРТ-ОБЪЕКТЫ, КОТОРЫЕ НАПОЛНЯЮТ ПРОСТРАНСТВА СМЫСЛАМИ И СОБИРАЮТ МИЛЛИОНЫ СЕЛФИ
-
+            Делаем места, куда хочется возвращаться
           </h1>
           <p className="mt-6 text-xl text-white/90 max-w-3xl">
-            Создаем узнаваемые символы для парков, ЖК и бизнес-центров. Полный цикл — от идеи до монтажа. Покажем концепт до старта работ и зафиксируем цену.
-
+            Арт-объекты, за которые будет гордость через 10 лет. Полный цикл — от идеи до монтажа под ключ
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Button size="lg" href="#contact">

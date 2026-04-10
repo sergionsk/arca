@@ -28,9 +28,9 @@ export const Footer = () => {
           <div>
             <h4 className="text-white text-md font-semibold mb-4">Контакты</h4>
             <ul className="space-y-2 text-sm">
-              <li>📞 +7 (999) 123-45-67</li>
+              <li>📞 +7 (913) 717-33-82</li>
               <li>✉️ info@arcaobjects.ru</li>
-              <li>📍 Москва, ул. Примерная, д. 1</li>
+              <li>📍 Новосибирск, пр-т. Дзержинского, д. 1/3</li>
             </ul>
           </div>
         </div>
