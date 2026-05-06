@@ -5,10 +5,11 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/Button';
 
 interface ContactFormProps {
-  onSubmit: (data: unknown) => void;
+  onSubmit: (data: any) => Promise<boolean>;
+  isSubmitting: boolean;
 }
 
-export const ContactForm = ({ onSubmit }: ContactFormProps) => {
+export const ContactForm = ({ onSubmit, isSubmitting }: ContactFormProps) => {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -27,9 +28,26 @@ export const ContactForm = ({ onSubmit }: ContactFormProps) => {
     setFormData(prev => ({ ...prev, file }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    onSubmit(formData);
+    
+    // Базовая валидация
+    if (!formData.name.trim() || !formData.phone.trim() || !formData.message.trim()) {
+      alert('Пожалуйста, заполните все обязательные поля');
+      return;
+    }
+
+    const success = await onSubmit({
+      name: formData.name,
+      phone: formData.phone,
+      city: formData.city,
+      message: formData.message,
+      file: formData.file ? { name: formData.file.name } : null,
+    });
+
+    if (success) {
+      setFormData({ name: '', phone: '', city: '', message: '', file: null });
+    }
   };
 
   return (
@@ -102,8 +120,8 @@ export const ContactForm = ({ onSubmit }: ContactFormProps) => {
           className="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-amber-50 file:text-amber-700 hover:file:bg-amber-100"
         />
       </div>
-      <Button type="submit" size="lg" className="w-full">
-        Отправить
+      <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+        {isSubmitting ? 'Отправка...' : 'Отправить'}
       </Button>
     </form>
   );

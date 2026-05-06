@@ -25,9 +25,9 @@ const Hero = () => {
           className="max-w-4xl relative z-10 text-white"
         >
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Делаем места, куда хочется возвращаться
+            Создаем места, куда хочется возвращаться
           </h1>
-          <p className="mt-6 text-xl text-white/90 max-w-3xl">
+          <p className="mt-6 text-4xl text-white/90 max-w-3xl">
             Арт-объекты, за которые будет гордость через 10 лет. Полный цикл — от идеи до монтажа под ключ
           </p>
           <div className="mt-10 flex flex-wrap gap-4">

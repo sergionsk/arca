@@ -6,15 +6,38 @@ import { Container } from '@/components/layout/Container';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { Button } from '@/components/ui/Button';
 import { ContactForm } from '@/components/forms/ContactForm';
+import { toast } from 'react-hot-toast'; // или другой способ уведомлений
 
 const Contact = () => {
-  const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (data: unknown) => {
-    // Здесь будет отправка на сервер
-    console.log(data);
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
+  const handleSubmit = async (formData: any) => {
+    setIsSubmitting(true);
+    
+    try {
+      const response = await fetch('/api/send-telegram', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        toast.success('Заявка отправлена! Мы свяжемся с вами в ближайшее время.');
+        // Очистка формы после успешной отправки
+        return true;
+      } else {
+        toast.error(result.error || 'Ошибка при отправке. Попробуйте позже.');
+        return false;
+      }
+    } catch (error) {
+      console.error('Submit error:', error);
+      toast.error('Ошибка сети. Проверьте подключение.');
+      return false;
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -27,7 +50,8 @@ const Contact = () => {
               centered={false}
             />
             <p className="mt-4 text-lg text-gray-600">
-              Пришлите фото, план или просто опишите словами — что за пространство и какое ощущение хотите создать. Предложим несколько идей и ориентировочный бюджет в течение 24 часов. Без обязательств.
+              Пришлите фото, план или просто опишите словами — что за пространство и какое ощущение хотите создать. 
+              Предложим несколько идей и ориентировочный бюджет в течение 24 часов.
             </p>
             <div className="mt-8 p-6 bg-gray-50 rounded-lg">
               <p className="text-sm text-gray-500">Личный блок</p>
@@ -36,27 +60,16 @@ const Contact = () => {
                   А
                 </div>
                 <div className="ml-4">
-                  <p className="font-medium">Меня зовут Сергей</p>
+                  <p className="font-medium">Меня зовут Александр</p>
                   <p className="text-sm text-gray-600">
-Создаем арт-объекты и скульптуры, которые наполняют пространство характером и делают его выразительнее. Любовь к своему делу помогает нам воплощать идеи в жизнь, притягивая людям долгие годы.
+                    Занимаюсь арт-объектами и скульптурами, которые меняют ощущение от пространства.
                   </p>
                 </div>
-              </div>
-              <div className="mt-4 space-y-1 text-sm">
-                <p>📞 +7 (913) 717-33-82</p>
-                <p>✉️ info@arca-objects.ru</p>
-                <p>💬 Telegram / WhatsApp</p>
               </div>
             </div>
           </div>
           <div>
-            {submitted ? (
-              <div className="bg-green-50 p-6 rounded-lg text-center">
-                <p className="text-green-800 font-medium">Спасибо! Мы свяжемся с вами в ближайшее время.</p>
-              </div>
-            ) : (
-              <ContactForm onSubmit={handleSubmit} />
-            )}
+            <ContactForm onSubmit={handleSubmit} isSubmitting={isSubmitting} />
           </div>
         </div>
       </Container>
